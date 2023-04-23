@@ -1,6 +1,18 @@
 
 export default function Home() {
   return (
-    <main></main>
+    <div className="h-screen flex flex-col">
+      <div className="flex flex-1">
+        <aside className="w-64 bg-zinc-950">
+          Side bar
+        </aside>
+        <main className="flex-1">
+          main
+        </main>
+      </div>
+      <footer className="">
+        Footer
+      </footer>
+    </div>
   )
 }
