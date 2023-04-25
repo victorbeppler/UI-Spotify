@@ -1,7 +1,25 @@
 import { Laptop2, LayoutList, Maximize2, Mic2, Repeat, Shuffle, SkipBack, SkipForward, Volume } from "lucide-react";
 import Image from "next/image";
+import { useState } from "react";
+import { useClient } from 'react-boost';
 
 function Footer() {
+    useClient();
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    const handlePlay = () => {
+        console.log('play')
+        if (isPlaying) {
+            setIsPlaying(false);
+            const audio = new Audio('/AlanWalker.mp3');
+            audio.pause();
+            return;
+        } else {
+            setIsPlaying(true);
+            const audio = new Audio('/AlanWalker.mp3');
+            audio.play();
+        }
+    };
     return (
         <footer className="bg-zinc-800 border-t  border-zinc-700 px-6 py-4 flex items-center justify-between">
             <div className='flex items-center gap-3'>
@@ -16,7 +34,7 @@ function Footer() {
                     <div className='flex items-center  gap-6'>
                         <Shuffle className='text-zinc-200' size={20} />
                         <SkipBack className='text-zinc-200' size={20} />
-                        <div className='bg-white rounded-full w-6 h-6 flex items-center justify-center'>
+                        <div className='bg-white rounded-full w-6 h-6 flex items-center justify-center' onClick={handlePlay}>
                             <Image src="/play-fill.svg" width={16} height={16} alt='Play button in playlist' />
                         </div>
                         <SkipForward className='text-zinc-200' size={20} />
