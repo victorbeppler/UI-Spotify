@@ -14,6 +14,7 @@ export default function Main() {
                     </button>
                 </div>
                 <div className="flex left text-blue-400 m-10">
+                    TESTE
                 </div>
             </div>
             {/* <h2 className='text-xl font-semibold'>Your top genres of 2021</h2>
