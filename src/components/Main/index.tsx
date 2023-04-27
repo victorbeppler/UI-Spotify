@@ -4,7 +4,7 @@ import React from "react"
 export default function Main() {
     return (
         <main className="flex-1 p-6">
-            <div className="flex flex-row">
+            <div className="flex justify-between">
                 <div className="flex items-center gap-4 start-0">
                     <button className="rounded-full bg-black/40 p-1">
                         <ChevronLeft />
@@ -13,8 +13,7 @@ export default function Main() {
                         <ChevronRight />
                     </button>
                 </div>
-                <div className="flex left">
-                    <button>Victorhugob</button>
+                <div className="flex left text-blue-400 m-10">
                 </div>
             </div>
             {/* <h2 className='text-xl font-semibold'>Your top genres of 2021</h2>
