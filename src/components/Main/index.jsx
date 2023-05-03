@@ -4,7 +4,7 @@ import React from "react";
 export default function Main() {
   return (
     <main className="flex-1">
-      <div className="bg-gradient-to-br  from-purple-700 to-purple-900-600 h-60">
+      <div className="bg-gradient-to-b  from-purple-700 to-purple-900-600 max-h-96">
         <div className="flex justify-between p-6">
           <div className="flex items-center gap-4 start-0">
             <button className="rounded-full bg-black/40 p-1">
@@ -22,8 +22,28 @@ export default function Main() {
             </div>
           </div>
         </div>
+        <div className="flex flex-row h-64">
+          <div className="w-44 h-44 bg-zinc-200 mr-4 ml-6"></div>
+          <div className="flex flex-col pt-6">
+            <div className="font-normal text-sm">Playlist</div>
+            <div className="font-semibold text-7xl">Liked Musics</div>
+            <div className="font-normal text-sm flex flex-row gap-1 pt-5">
+              <img src="./CapaAlanWalker.jpeg" className="w-6 rounded-full" />
+              victorhb . 257 musics
+            </div>
+          </div>
+        </div>
       </div>
-      <div className="bg-darkPurple h-32"></div>
+      <div className="bg-gradient-to-t  from-purple-950 to-zinc-900 h-32">
+        <div className="flex w-12 h-12 bg-greenNeon rounded-full justify-center items-center ml-8">
+          <img
+            src="/play-fill.svg"
+            width={18}
+            height={18}
+            alt="Play button in playlist"
+          />
+        </div>
+      </div>
       {/* <h2 className='text-xl font-semibold'>Your top genres of 2021</h2>
       <p className='text-zinc-400 mt-2'>Your top genres of 2021</p> */}
       {/* <h1 className="font-semi-bold text-3xl mt-10">Good Afternoon</h1>
