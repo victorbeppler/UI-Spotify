@@ -7,6 +7,9 @@ module.exports = {
         darkPurple: "#21192C",
         greenNeon: "#34FC21",
       },
+      borderWidth: {
+        1: "1px",
+      },
     },
   },
   plugins: [],
