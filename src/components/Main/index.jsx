@@ -3,24 +3,27 @@ import React from "react";
 
 export default function Main() {
   return (
-    <main className="flex-1 p-6">
-      <div className="flex justify-between">
-        <div className="flex items-center gap-4 start-0">
-          <button className="rounded-full bg-black/40 p-1">
-            <ChevronLeft />
-          </button>
-          <button className="rounded-full bg-black/40 p-1">
-            <ChevronRight />
-          </button>
-        </div>
-        <div className="flex gap-2 border h-8 border-gray-50 rounded-full pr-1 pl-1 hover:translate-y-0.5">
-          <img src="./CapaAlanWalker.jpeg" className="w-6 rounded-full" />
-          victorhb
-          <div className="flex align-bottom pt-1">
-            <ChevronDown size={20} />
+    <main className="flex-1">
+      <div className="bg-gradient-to-br  from-purple-700 to-purple-900-600 h-60">
+        <div className="flex justify-between p-6">
+          <div className="flex items-center gap-4 start-0">
+            <button className="rounded-full bg-black/40 p-1">
+              <ChevronLeft />
+            </button>
+            <button className="rounded-full bg-black/40 p-1">
+              <ChevronRight />
+            </button>
+          </div>
+          <div className="flex gap-2 border h-8 border-gray-50 rounded-full pr-1 pl-1 hover:translate-y-0.5">
+            <img src="./CapaAlanWalker.jpeg" className="w-6 rounded-full" />
+            victorhb
+            <div className="flex align-bottom pt-1">
+              <ChevronDown size={20} />
+            </div>
           </div>
         </div>
       </div>
+      <div className="bg-darkPurple h-32"></div>
       {/* <h2 className='text-xl font-semibold'>Your top genres of 2021</h2>
       <p className='text-zinc-400 mt-2'>Your top genres of 2021</p> */}
       {/* <h1 className="font-semi-bold text-3xl mt-10">Good Afternoon</h1>
@@ -202,6 +205,6 @@ export default function Main() {
                     </span>
                 </a>
             </div> */}
-        </main>
-    )
+    </main>
+  );
 }
