@@ -15,12 +15,8 @@ export default function Main() {
               <ChevronRight />
             </button>
           </div>
-          <div className="flex gap-2 border h-8 border-gray-50 rounded-full pr-1 pl-1 hover:translate-y-0.5">
-            <img src="./victor.jpeg" className="w-8 h-7 rounded-full" />
-            victorhb
-            <div className="flex align-bottom pt-1">
-              <ChevronDown size={20} />
-            </div>
+          <div className="flex gap-2 border w-10 h-10 border-gray-50 hover:translate-y-0.5 rounded-full">
+            <img src="./victor.png" className="w-20 rounded-full" />
           </div>
         </div>
         <div className="flex flex-row h-64">
@@ -31,7 +27,7 @@ export default function Main() {
             <div className="font-normal text-sm">Playlist</div>
             <div className="font-semibold text-7xl">Liked Songs</div>
             <div className="font-normal text-sm flex flex-row gap-1 pt-5 items-center">
-              <img src="./victor.jpeg" className="w-6 h-6 rounded-full" />
+              <img src="./victor.png" className="w-6 h-6 rounded-full" />
               victorhb . 257 musics
             </div>
           </div>
