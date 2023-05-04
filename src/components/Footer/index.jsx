@@ -13,17 +13,24 @@ import {
 
 export default function Footer() {
   const [isPlaying, setIsPlaying] = useState(false);
-  console.log(isPlaying);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
 
   const audio = new Audio("/AlanWalker.mp3");
-  audio.addEventListener("loadedmetadata", () => {
-    setDuration(audio.duration);
+  let intervalId;
+
+  audio.addEventListener("play", () => {
+    intervalId = setInterval(() => {
+      setCurrentTime(audio.currentTime);
+    }, 500);
   });
 
-  audio.addEventListener("timeupdate", () => {
-    setCurrentTime(audio.currentTime);
+  audio.addEventListener("pause", () => {
+    clearInterval(intervalId);
+  });
+
+  audio.addEventListener("loadedmetadata", () => {
+    setDuration(audio.duration);
   });
 
   useEffect(() => {
@@ -41,7 +48,7 @@ export default function Footer() {
   }, [isPlaying]);
 
   const handlePlay = () => {
-    isPlaying ? setIsPlaying(false) : setIsPlaying(true);
+    setIsPlaying((prevState) => !prevState);
   };
 
   const formatTime = (time) => {
