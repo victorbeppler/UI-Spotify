@@ -82,7 +82,7 @@ export default function Main() {
           <tbody>
             {data.map((item) => {
               return (
-                <tr className="hover:border-1">
+                <tr key={item.id} className="hover:border-1">
                   <td className="py-4 px-6">{item.id}</td>
                   <td className="py-4 px-6 flex gap-2">
                     <img
