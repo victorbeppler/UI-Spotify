@@ -13,40 +13,35 @@ import {
 
 export default function Footer() {
   const [isPlaying, setIsPlaying] = useState(false);
+  console.log(isPlaying);
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
 
-  useEffect(() => {
-    const audio = new Audio("/AlanWalker.mp3");
-    console.log(audio.duration);
-    console.log(audio.currentTime);
+  const audio = new Audio("/AlanWalker.mp3");
+  audio.addEventListener("loadedmetadata", () => {
+    setDuration(audio.duration);
+  });
 
+  audio.addEventListener("timeupdate", () => {
+    setCurrentTime(audio.currentTime);
+  });
+
+  useEffect(() => {
+    if (!isPlaying) {
+      audio.pause();
+    }
+    if (isPlaying) {
+      audio.play();
+    }
     return () => {
       audio.removeEventListener("loadedmetadata", () => {});
       audio.removeEventListener("timeupdate", () => {});
       audio.pause();
     };
-  }, []);
+  }, [isPlaying]);
 
   const handlePlay = () => {
-    console.log("play");
-    if (isPlaying) {
-      setIsPlaying(false);
-      const audio = new Audio("/AlanWalker.mp3");
-      audio.pause();
-      return;
-    } else {
-      setIsPlaying(true);
-      const audio = new Audio("/AlanWalker.mp3");
-      audio.addEventListener("loadedmetadata", () => {
-        setDuration(audio.duration);
-      });
-
-      audio.addEventListener("timeupdate", () => {
-        setCurrentTime(audio.currentTime);
-      });
-      audio.play();
-    }
+    isPlaying ? setIsPlaying(false) : setIsPlaying(true);
   };
 
   const formatTime = (time) => {
@@ -56,7 +51,6 @@ export default function Footer() {
       .padStart(2, "0");
     return `${minutes}:${seconds}`;
   };
-  console.log(duration, currentTime);
   return (
     <footer className="bg-zinc-800 border-t  border-zinc-700 px-6 py-4 flex items-center justify-between">
       <div className="flex items-center gap-3">
@@ -72,15 +66,28 @@ export default function Footer() {
             <Shuffle className="text-zinc-200" size={20} />
             <SkipBack className="text-zinc-200" size={20} />
             <div
-              className="bg-white rounded-full w-6 h-6 flex items-center justify-center"
+              className={
+                isPlaying
+                  ? "rounded-full w-6 h-6 flex items-center justify-center bg-none"
+                  : "bg-white rounded-full w-6 h-6 flex items-center justify-center"
+              }
               onClick={handlePlay}
             >
-              <img
-                src="/play-fill.svg"
-                width={16}
-                height={16}
-                alt="Play button in playlist"
-              />
+              {isPlaying ? (
+                <img
+                  src="/pause-circle.png"
+                  width={26}
+                  height={26}
+                  alt="Pause button in playlist"
+                />
+              ) : (
+                <img
+                  src="/play-fill.svg"
+                  width={16}
+                  height={16}
+                  alt="Play button in playlist"
+                />
+              )}
             </div>
             <SkipForward className="text-zinc-200" size={20} />
             <Repeat className="text-zinc-200" size={20} />
